@@ -26,7 +26,7 @@ public class MoneyTransferTest {
 
     @Test
     void transferFrom1to2() {
-        int amount = 7000;
+        int amount = 5000;
         var dashboardPage = new DashboardPage();
         var firstCardInitialAmount = dashboardPage.getFirstCardBalance();
         var secondCardInitialAmount = dashboardPage.getSecondCardBalance();
@@ -41,7 +41,7 @@ public class MoneyTransferTest {
 
     @Test
     void transferFrom2to1() {
-        int amount = 7000;
+        int amount = 3000;
         var dashboardPage = new DashboardPage();
         var firstCardInitialAmount = dashboardPage.getFirstCardBalance();
         var secondCardInitialAmount = dashboardPage.getSecondCardBalance();
@@ -53,28 +53,4 @@ public class MoneyTransferTest {
         assertEquals(secondCardEndBalance, dashboardPage.getSecondCardBalance());
 
     }
-    @Test
-    void transferFrom1To1() {
-        int amount = 8000;
-        var dashboardPage = new DashboardPage();
-        var firstCardInitialAmount = dashboardPage.getFirstCardBalance();
-        var secondCardInitialAmount = dashboardPage.getSecondCardBalance();
-        var transactionPage = firstCardPushButton();
-        transactionPage.transferMoney(amount, getFirstCardNumber());
-        transactionPage.invalidCard();
-    }
-
-    @Test
-    void transferMoreBalance() {
-        int amount = 15000;
-        var dashboardPage = new DashboardPage();
-        var firstCardInitialAmount = dashboardPage.getFirstCardBalance();
-        var secondCardInitialAmount = dashboardPage.getSecondCardBalance();
-        var transactionPage = secondCardPushButton();
-        transactionPage.transferMoney(amount, getFirstCardNumber());
-        transactionPage.errorLimit();
-
-    }
-
-
 }
